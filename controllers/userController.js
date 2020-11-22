@@ -11,7 +11,7 @@ exports.getUser = (req,res) => {
 exports.getUsers = (req,res) => {
     User.find()
     .then((result) => res.send(result))
-    .catch((err) => console.log(err))
+    .catch((err) => res.send(err))
 };
 
 exports.insertUser = (req,res) => {
@@ -45,6 +45,7 @@ exports.deleteUser = (req,res) => {
     var id = req.body._id;
     User.deleteOne({_id : id})
     .then(res.send('User removed!'))
+    .catch(err => res.send(err))
 };
 
 exports.getAggregateUsers = (req,res) => {
