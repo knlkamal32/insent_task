@@ -7,4 +7,4 @@ const VisitorSchema = new mongoose.Schema({
     company : {type : String}
 });
 
-module.exports = mongoose.model('visitors',VisitorSchema);
+module.exports = mongoose.model('visitor',VisitorSchema);

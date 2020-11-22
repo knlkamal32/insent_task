@@ -4,15 +4,15 @@ const ConversationSchema = new mongoose.Schema({
     name: {type : String},
     users: [{
         userId: {type : mongoose.Schema.Types.ObjectId},
-        type: Enum(user, visitor)
+        type: Enum['user', 'visitor']
     }],
     logs: [{
         message: {type : String},
         senderId: {type : mongoose.Schema.Types.ObjectId},
         timestamp: { type : Number},
-        senderType: Enum(user, visitor)
+        senderType: Enum['user','visitor']
     }]
 
 });
 
-module.exports = mongoose.model('conversations',ConversationSchema);
+module.exports = mongoose.model('Conversation',ConversationSchema);
