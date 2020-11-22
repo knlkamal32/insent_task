@@ -4,13 +4,13 @@ exports.getVisitor = (req,res) => {
     var name = req.body.name;
     Visitor.findOne({name : name})
     .then(result => res.send(result))
-    .catch(err => console.log(err));
+    .catch(err => res.send(err));
 };
 
 exports.getVisitors = (req,res) => {
     Visitor.find()
     .then((result) => res.send(result))
-    .catch((err) => console.log(err))
+    .catch((err) => res.send(err))
 };
 
 exports.insertVisitor = (req,res) => {
@@ -45,6 +45,7 @@ exports.deleteVisitor = (req,res) => {
     var id = req.body._id;
     Visitor.deleteOne({_id : id})
     .then(res.send('Visitor removed!'))
+    .catch(err => res.send(err))
 };
 
 exports.getAggregateVisitors = (req,res) => {
